@@ -1,0 +1,91 @@
+.register {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.rContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.rInputWrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.rInputWrapper .fas {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.rInput {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.rInput:focus {
+  outline: none;
+  border: 2px solid #9CCB3B;
+}
+
+.rButton {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  border: none;
+  padding: 12px;
+  background-color: #9CCB3B;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  display: block;
+}
+
+.rButton:disabled {
+  background-color: #7aa12e;
+  cursor: not-allowed;
+}
+
+.rLogin {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.rLink {
+  color: #9CCB3B;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rLink:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .rContainer {
+    width: 90%;
+  }
+}

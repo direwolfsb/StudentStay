@@ -1,0 +1,61 @@
+/* Setting up the container for the featured section */
+.featured {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between; /* Spacing out the featured items evenly */
+  gap: 20px; /* Adding a gap between each featured item */
+  z-index: 1; /* Ensuring the featured section is appearing above other elements */
+}
+
+/* Styling each individual featured item */
+.featuredItem {
+  position: relative;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden; /* Hiding any overflowing content to maintain rounded corners */
+  height: 250px;
+  flex: 1; /* Allowing items to be growing and shrinking equally */
+  cursor: pointer; /* Indicating that the item is being clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding a smooth transition for the hover effects */
+}
+
+/* Applying a hover effect to the featured item */
+.featuredItem:hover {
+  transform: translateY(-5px); /* Slightly raising the item on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adding a shadow for a lifted effect */
+}
+
+/* Styling the image within the featured item */
+.featuredImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensuring the image is covering the entire area */
+  transition: transform 0.3s ease; /* Adding a smooth transition for image zoom */
+}
+
+/* Zooming in the image when hovering over the featured item */
+.featuredItem:hover .featuredImg {
+  transform: scale(1.05); /* Slightly zooming in the image on hover */
+}
+
+/* Positioning and styling the titles inside the featured item */
+.featuredTitles {
+  position: absolute;
+  bottom: 20px; /* Positioning the titles near the bottom of the item */
+  left: 20px; /* Slightly offsetting from the left edge */
+}
+
+/* Styling the main title within the featured item */
+.featuredTitles h1 {
+  margin: 0; /* Removing the default margin */
+  font-size: 1.5rem; /* Setting the font size */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adding a subtle text shadow for better readability */
+}
+
+/* Styling the subtitle within the featured item */
+.featuredTitles h2 {
+  margin: 5px 0 0; /* Adding a slight margin on top, removing margins on sides and bottom */
+  font-size: 1.2rem; /* Setting the font size */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adding a subtle text shadow for better readability */
+}

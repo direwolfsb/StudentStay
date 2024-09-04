@@ -1,0 +1,96 @@
+.aboutus {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .aboutusCard {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .aboutusCard h2 {
+    color: #9CCB3B;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  .aboutusCard h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .aboutusCard p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .aboutusCard p br {
+    margin-bottom: 15px;
+  }
+  
+  .aboutusCard p span {
+    font-weight: bold;
+    color: #9CCB3B;
+  }
+  
+  .contactInfo {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .contactInfo h3 {
+    margin-bottom: 10px;
+    color: #9CCB3B;
+  }
+  
+  .contactInfo p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .contactInfo .contactItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .contactInfo .contactItem i {
+    margin-right: 10px;
+    color: #9CCB3B;
+  }
+  
+  @media (max-width: 768px) {
+    .aboutusCard {
+      padding: 20px;
+    }
+  
+    .aboutusCard h2 {
+      font-size: 1.8rem;
+    }
+  
+    .aboutusCard h3 {
+      font-size: 1.3rem;
+    }
+  
+    .aboutusCard p {
+      font-size: 0.95rem;
+    }
+  
+    .contactInfo p {
+      font-size: 0.95rem;
+    }
+  }
+  
