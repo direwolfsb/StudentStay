@@ -4,7 +4,7 @@
 <img width="500" alt="Screenshot 2024-08-31 at 5 49 54 PM" src="https://github.com/user-attachments/assets/cbd8c972-6442-48d9-bba8-0f042b94b97b">
 
 
-##Overview
+## Overview
 **StudentStay** is a comprehensive platform that allows students to find, book, and rent accommodations during their academic journey. It leverages modern web technologies with user-friendly interfaces and secure authentication, offering a seamless experience to students and property owners alike.
 
 ## Table of Contents
