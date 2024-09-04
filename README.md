@@ -1,6 +1,7 @@
 
 
 # StudentStay
+<img width="500" alt="Screenshot 2024-08-31 at 5 49 54 PM" src="https://github.com/user-attachments/assets/cbd8c972-6442-48d9-bba8-0f042b94b97b">
 
 **StudentStay** is a comprehensive platform that allows students to find, book, and rent accommodations during their academic journey. It leverages modern web technologies with user-friendly interfaces and secure authentication, offering a seamless experience to students and property owners alike.
 
@@ -280,14 +281,25 @@ For any inquiries or support, please contact us at:
 - **GitHub Issues:** [Create a new issue](https://github.com/yourusername/studentstay/issues)
 
 ---
+## Client 
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 31 PM" src="https://github.com/user-attachments/assets/28318520-d143-45dd-920c-c4412714e281">
+<img width="777" alt="Screenshot 2024-08-31 at 5 51 49 PM" src="https://github.com/user-attachments/assets/270c3d04-9516-48e8-8b85-aaee0713dfee">
+<img width="777" alt="Screenshot 2024-08-31 at 5 52 03 PM" src="https://github.com/user-attachments/assets/6470b244-91ea-4499-838d-55ee6aeb013e">
+<img width="777" alt="Screenshot 2024-08-31 at 5 52 19 PM" src="https://github.com/user-attachments/assets/4462b208-8aa0-48e5-b32a-f280aabaf091">
 
-Feel free to customize this README to better fit your project's specifics <img width="1440" alt="Screenshot 2024-08-31 at 5 53 31 PM" src="https://github.com/user-attachments/assets/28318520-d143-45dd-920c-c4412714e281">
-<img width="777" alt="Screenshot 2024-08-31 at 5 53 24 PM" src="https://github.com/user-attachments/assets/70d91645-007a-4b98-8a40-f86c01b18d9d">
-<img width="777" alt="Screenshot 2024-08-31 at 5 53 15 PM" src="https://github.com/user-attachments/assets/98339348-f426-4a34-87e4-285b3d97b23b">
-<img width="777" alt="Screenshot 2024-08-31 at 5 52 50 PM" src="https://github.com/user-attachments/assets/43d04311-f940-4a48-a919-efdec02d006c">
-<img width="777" alt="Screenshot 2024-08-31 at 5 52 19 PM" src="https://github.com/user-attachments/assets/296006fc-8cc5-418b-9ee3-ae98e9bf461d">
-<img width="777" alt="Screenshot 2024-08-31 at 5 52 03 PM" src="https://github.com/user-attachments/assets/01d34c1a-23da-4d22-9600-2c22990f3e41">
-<img width="777" alt="Screenshot 2024-08-31 at 5 51 49 PM" src="https://github.com/user-attachments/assets/bd43de10-3158-4b8b-8f63-1ad95c5a0220">
-<img width="777" alt="Screenshot 2024-08-31 at 5 50 26 PM" src="https://github.com/user-attachments/assets/af336c5a-6639-4002-9eb4-16a45019d473">
-<img width="777" alt="Screenshot 2024-08-31 at 5 49 54 PM" src="https://github.com/user-attachments/assets/2d83bd42-57e3-4851-be1f-7369375676e7">
-and update the placeholders with actual links or information relevant to your project.
+## Admin
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 15 PM" src="https://github.com/user-attachments/assets/cf41865b-c460-438d-add3-6d65009908d4">
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 24 PM" src="https://github.com/user-attachments/assets/5dccd54f-4003-46ef-92bc-2f1538240226">
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 31 PM" src="https://github.com/user-attachments/assets/5ec7927f-45cd-432f-acb9-9472219f80ed">
+
+## Live Demo
+Check out a live demo of **StudentStay** in action by watching the following video:
+[![Live Demo](https://img.youtube.com/vi/1JSJV-EFTcqV9u2U88qxxhzWBEqYVZlzm/maxresdefault.jpg)](https://drive.google.com/file/d/1JSJV-EFTcqV9u2U88qxxhzWBEqYVZlzm/view?usp=drive_link)
+
+*Click the image above to watch the full demo.*
+
+In the video, you'll see:
+- How users can browse and filter listings.
+- The registration and login process with JWT authentication.
+- The smooth experience of booking a room.
+- Admin functionalities for managing listings and bookings.
