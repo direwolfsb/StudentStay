@@ -294,7 +294,7 @@ For any inquiries or support, please contact us at:
 
 ## Live Demo
 Check out a live demo of **StudentStay** in action by watching the following video:
-https://img.youtube.com/vi/1JSJV-EFTcqV9u2U88qxxhzWBEqYVZlzm/maxresdefault.jpg)](https://drive.google.com/file/d/1JSJV-EFTcqV9u2U88qxxhzWBEqYVZlzm/view?usp=drive_link
+https://drive.google.com/file/d/1JSJV-EFTcqV9u2U88qxxhzWBEqYVZlzm/view?usp=drive_link
 
 *Click the image above to watch the full demo.*
 
