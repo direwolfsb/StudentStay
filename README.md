@@ -1,6 +1,4 @@
-Here’s a detailed and organized README for **StudentStay**, incorporating JWT authentication, custom hooks like `fetchHook`, authentication context (`authContext`), admin functionalities, and client-side functionalities. This README is designed to provide a comprehensive understanding of the project.
 
----
 
 # StudentStay
 
@@ -282,8 +280,6 @@ For any inquiries or support, please contact us at:
 - **GitHub Issues:** [Create a new issue](https://github.com/yourusername/studentstay/issues)
 
 ---
-
-This README now includes detailed information about the platform's authentication, custom hooks, protected routes, and admin functionality.
 
 Feel free to customize this README to better fit your project's specifics <img width="1440" alt="Screenshot 2024-08-31 at 5 53 31 PM" src="https://github.com/user-attachments/assets/28318520-d143-45dd-920c-c4412714e281">
 <img width="777" alt="Screenshot 2024-08-31 at 5 53 24 PM" src="https://github.com/user-attachments/assets/70d91645-007a-4b98-8a40-f86c01b18d9d">
