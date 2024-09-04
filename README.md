@@ -1,15 +1,18 @@
-# StudentStayHere's a sample README file for your GitHub repository for the "StudentStay" project:
+Here’s a detailed and organized README for **StudentStay**, incorporating JWT authentication, custom hooks like `fetchHook`, authentication context (`authContext`), admin functionalities, and client-side functionalities. This README is designed to provide a comprehensive understanding of the project.
 
 ---
 
 # StudentStay
 
-**StudentStay** is a platform designed to help students find and rent accommodations for their academic journey. Whether you're looking for a place to stay for a day, a week, or an entire semester, StudentStay provides a user-friendly interface, verified listings, and flexible rental options tailored to your needs.
+**StudentStay** is a comprehensive platform that allows students to find, book, and rent accommodations during their academic journey. It leverages modern web technologies with user-friendly interfaces and secure authentication, offering a seamless experience to students and property owners alike.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Authentication and Authorization](#authentication-and-authorization)
+- [Frontend Components and Hooks](#frontend-components-and-hooks)
+- [Admin Functionality](#admin-functionality)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
@@ -19,35 +22,167 @@
 
 ## Features
 
-- **Convenient and Flexible Rentals:** Choose from a variety of rental options, whether you need a room for a short-term stay or a long-term lease.
-- **Verified Listings:** All listings are verified to ensure safety and accuracy, providing you with peace of mind.
-- **User-Friendly Interface:** Easily search for accommodations by location, price, amenities, and more.
-- **Community and Support:** Join a community of students sharing their experiences and reviews, and receive assistance from our support team when needed.
-- **Secure Booking:** Reserve your room with confidence, knowing that your data and payment information are secure.
+- **JWT Authentication:** Secure login and registration for users using JSON Web Tokens (JWT).
+- **Custom Hooks:** Use of reusable custom hooks such as `fetchHook` to simplify API calls.
+- **Authentication Context:** Global authentication state management using `authContext` to handle logged-in status across the application.
+- **Admin Panel:** Admin functionality to manage users, properties, bookings, and approvals.
+- **User-Friendly Interface:** Easy navigation and powerful filters for students to find accommodations.
+- **Secure Booking:** Seamless and secure booking process with payment integration.
 
 ## Technologies Used
 
 - **Frontend:**
   - React.js
-  - CSS (Custom styles and animations)
-  - FontAwesome (for icons)
-
+  - React Hooks (Custom hooks for fetching data, authentication, etc.)
+  - React Context API (for global state management)
+  - Axios (for API requests)
+  - React Router (for navigation)
+  - Bootstrap (for responsive styling)
+  
 - **Backend:**
   - Node.js
   - Express.js
-
-- **Database:**
-  - MongoDB
+  - JWT (JSON Web Tokens) for authentication
+  - MongoDB (Database)
 
 - **Authentication:**
-  - JSON Web Tokens (JWT)
+  - JSON Web Tokens (JWT) for user authentication and authorization
 
-- **APIs:**
-  - Custom RESTful API built with Express.js
+## Authentication and Authorization
+
+The app uses **JWT** for both user and admin authentication. Here’s how the flow works:
+
+- **User Registration and Login:** 
+  - When a user registers, their password is hashed using bcrypt and stored in the database.
+  - During login, a JWT is generated and sent to the client, which stores it in local storage.
+  - Subsequent API requests include the JWT in the headers for verification.
+
+- **Token Validation:**
+  - The backend verifies the JWT using the `jsonwebtoken` package.
+  - Protected routes (like booking or posting listings) require a valid token to access.
+
+- **Roles & Permissions:**
+  - The platform includes user roles like `admin` and `student`. Only `admin` users have access to administrative functions (like managing listings and bookings).
+
+## Frontend Components and Hooks
+
+### **Custom Hooks**
+
+#### `fetchHook.js`
+
+This custom hook handles API calls across the application. It abstracts away repetitive API requests and provides a standardized way to manage loading and errors.
+
+```javascript
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const useFetch = (url, options) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios(url, options);
+        setData(response.data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+export default useFetch;
+```
+
+### **Authentication Context (`authContext`)**
+
+The `authContext` manages user authentication and stores the JWT token. It allows the entire app to have access to authentication status and user information.
+
+```javascript
+import { createContext, useState } from 'react';
+
+export const AuthContext = createContext();
+
+const AuthProvider = ({ children }) => {
+  const [auth, setAuth] = useState({
+    token: localStorage.getItem('token') || null,
+    user: null,
+  });
+
+  const login = (token, user) => {
+    localStorage.setItem('token', token);
+    setAuth({ token, user });
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setAuth({ token: null, user: null });
+  };
+
+  return (
+    <AuthContext.Provider value={{ auth, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthProvider;
+```
+
+### **Protected Routes**
+
+You can create protected routes that only logged-in users can access using the authentication context:
+
+```javascript
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from './authContext';
+
+const ProtectedRoute = ({ children }) => {
+  const { auth } = useContext(AuthContext);
+
+  if (!auth.token) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
+};
+
+export default ProtectedRoute;
+```
+
+## Admin Functionality
+
+### **Admin Panel**
+
+- **Manage Users:** Admins can view, approve, or delete user accounts.
+- **Manage Listings:** Admins have the ability to approve or deny property listings. This ensures only verified listings appear on the platform.
+- **Manage Bookings:** Admins can view, confirm, or cancel bookings made by students.
+
+### **Admin Protected Routes**
+
+Admin routes are protected and only accessible to users with an `admin` role. This is achieved by extending the `ProtectedRoute` component:
+
+```javascript
+const AdminProtectedRoute = ({ children }) => {
+  const { auth } = useContext(AuthContext);
+
+  if (!auth.token || auth.user.role !== 'admin') {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};
+```
 
 ## Installation
-
-To get started with the StudentStay project on your local machine, follow these steps:
 
 ### Prerequisites
 
@@ -148,4 +283,15 @@ For any inquiries or support, please contact us at:
 
 ---
 
-Feel free to customize this README to better fit your project's specifics and update the placeholders with actual links or information relevant to your project.
+This README now includes detailed information about the platform's authentication, custom hooks, protected routes, and admin functionality.
+
+Feel free to customize this README to better fit your project's specifics <img width="1440" alt="Screenshot 2024-08-31 at 5 53 31 PM" src="https://github.com/user-attachments/assets/28318520-d143-45dd-920c-c4412714e281">
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 24 PM" src="https://github.com/user-attachments/assets/70d91645-007a-4b98-8a40-f86c01b18d9d">
+<img width="777" alt="Screenshot 2024-08-31 at 5 53 15 PM" src="https://github.com/user-attachments/assets/98339348-f426-4a34-87e4-285b3d97b23b">
+<img width="777" alt="Screenshot 2024-08-31 at 5 52 50 PM" src="https://github.com/user-attachments/assets/43d04311-f940-4a48-a919-efdec02d006c">
+<img width="777" alt="Screenshot 2024-08-31 at 5 52 19 PM" src="https://github.com/user-attachments/assets/296006fc-8cc5-418b-9ee3-ae98e9bf461d">
+<img width="777" alt="Screenshot 2024-08-31 at 5 52 03 PM" src="https://github.com/user-attachments/assets/01d34c1a-23da-4d22-9600-2c22990f3e41">
+<img width="777" alt="Screenshot 2024-08-31 at 5 51 49 PM" src="https://github.com/user-attachments/assets/bd43de10-3158-4b8b-8f63-1ad95c5a0220">
+<img width="777" alt="Screenshot 2024-08-31 at 5 50 26 PM" src="https://github.com/user-attachments/assets/af336c5a-6639-4002-9eb4-16a45019d473">
+<img width="777" alt="Screenshot 2024-08-31 at 5 49 54 PM" src="https://github.com/user-attachments/assets/2d83bd42-57e3-4851-be1f-7369375676e7">
+and update the placeholders with actual links or information relevant to your project.
